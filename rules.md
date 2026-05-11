@@ -832,7 +832,7 @@ vamos a usar estricatamente git flow
 esa forma de trabajar
 
 
-HABRA 1 SOLO SOTRE PARA CADA BONUDED CONTEXT
+HABRA 1 SOLO api PARA CADA BONUDED CONTEXT
 UNA SOLA API EN UN BOUNDED CONTEXT(PUEDEN HABER VARIOS ENDPOINT)
 
 tenemos que usar char js
