@@ -1,0 +1,215 @@
+{
+  "carePlans": [
+    {
+      "id": "1",
+      "neonateName": "Lucas Ramirez",
+      "riskLevel": "High",
+      "status": "Active",
+      "priorityLevel": "Critical",
+      "monitoringFrequency": "Every 4 hours",
+      "createdDate": "2026-05-10",
+      "lastReviewDate": "2026-05-11",
+      "nextFollowUpDate": "2026-05-12",
+      "assignedPediatrician": "Dr. Martinez"
+    },
+    {
+      "id": "2",
+      "neonateName": "Sofía Chen",
+      "riskLevel": "Medium",
+      "status": "Active",
+      "priorityLevel": "Moderate",
+      "monitoringFrequency": "Every 8 hours",
+      "createdDate": "2026-05-08",
+      "lastReviewDate": "2026-05-11",
+      "nextFollowUpDate": "2026-05-14",
+      "assignedPediatrician": "Dr. Wilson"
+    },
+    {
+      "id": "3",
+      "neonateName": "Mateo García",
+      "riskLevel": "Low",
+      "status": "Stable",
+      "priorityLevel": "Low",
+      "monitoringFrequency": "Daily",
+      "createdDate": "2026-05-09",
+      "lastReviewDate": "2026-05-11",
+      "nextFollowUpDate": "2026-05-16",
+      "assignedPediatrician": "Dr. Arispe"
+    },
+    {
+      "id": "4",
+      "neonateName": "Emma Smith",
+      "riskLevel": "High",
+      "status": "Active",
+      "priorityLevel": "Critical",
+      "monitoringFrequency": "Every 2 hours",
+      "createdDate": "2026-05-11",
+      "lastReviewDate": "2026-05-11",
+      "nextFollowUpDate": "2026-05-12",
+      "assignedPediatrician": "Dr. Thompson"
+    },
+    {
+      "id": "5",
+      "neonateName": "Liam Müller",
+      "riskLevel": "Medium",
+      "status": "Observation",
+      "priorityLevel": "Moderate",
+      "monitoringFrequency": "Every 6 hours",
+      "createdDate": "2026-05-07",
+      "lastReviewDate": "2026-05-10",
+      "nextFollowUpDate": "2026-05-13",
+      "assignedPediatrician": "Dr. Martinez"
+    },
+    {
+      "neonateName": "Juan Diego",
+      "riskLevel": "High",
+      "status": "Active",
+      "priorityLevel": "Critical",
+      "monitoringFrequency": "Daily",
+      "nextFollowUpDate": "2026-05-20",
+      "assignedPediatrician": "Carlos",
+      "createdDate": "2026-05-11",
+      "lastReviewDate": "2026-05-11",
+      "id": "-y58BzhEEfw"
+    },
+    {
+      "neonateName": "Juan Diego",
+      "riskLevel": "High",
+      "status": "Active",
+      "priorityLevel": "Critical",
+      "monitoringFrequency": "Daily",
+      "nextFollowUpDate": "2026-05-20",
+      "assignedPediatrician": "",
+      "createdDate": "2026-05-11",
+      "lastReviewDate": "2026-05-11",
+      "id": "aa1Gec608iE"
+    },
+    {
+      "neonateName": "asdsad",
+      "riskLevel": "Medium",
+      "status": "Active",
+      "priorityLevel": "Normal",
+      "monitoringFrequency": "",
+      "nextFollowUpDate": "asdads",
+      "assignedPediatrician": "asd",
+      "createdDate": "2026-05-11",
+      "lastReviewDate": "2026-05-11",
+      "id": "lcaHDbFe1HU"
+    }
+  ],
+  "followUps": [
+    {
+      "id": "1",
+      "carePlanId": 1,
+      "followUpDate": "2026-05-12",
+      "followUpType": "Emergency Review",
+      "status": "Pending",
+      "observations": "Monitor body temperature closely",
+      "assignedSpecialist": "Dr. Martinez"
+    },
+    {
+      "id": "2",
+      "carePlanId": 2,
+      "followUpDate": "2026-05-14",
+      "followUpType": "Routine Check",
+      "status": "Scheduled",
+      "observations": "Evaluate weight gain progress",
+      "assignedSpecialist": "Dr. Wilson"
+    },
+    {
+      "id": "3",
+      "carePlanId": 4,
+      "followUpDate": "2026-05-12",
+      "followUpType": "Respiratory Assessment",
+      "status": "Urgent",
+      "observations": "Check oxygen saturation levels",
+      "assignedSpecialist": "Dr. Thompson"
+    },
+    {
+      "id": "4",
+      "carePlanId": 3,
+      "followUpDate": "2026-05-16",
+      "followUpType": "General Follow-up",
+      "status": "Scheduled",
+      "observations": "Discharge preparation assessment",
+      "assignedSpecialist": "Dr. Arispe"
+    },
+    {
+      "id": "5",
+      "carePlanId": 5,
+      "followUpDate": "2026-05-13",
+      "followUpType": "Neurological Screening",
+      "status": "Pending",
+      "observations": "Follow up on ultrasound results",
+      "assignedSpecialist": "Dr. Vance"
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "1",
+      "carePlanId": 1,
+      "recommendation": "Increase hydration monitoring",
+      "urgencyLevel": "High",
+      "generatedBy": "Clinical Support System",
+      "generatedDate": "2026-05-11",
+      "status": "Active"
+    },
+    {
+      "id": "2",
+      "carePlanId": 2,
+      "recommendation": "Adjust nutritional formula (Enriched)",
+      "urgencyLevel": "Medium",
+      "generatedBy": "Nutritionist Specialist",
+      "generatedDate": "2026-05-11",
+      "status": "Active"
+    },
+    {
+      "id": "3",
+      "carePlanId": 4,
+      "recommendation": "Continuous pulse oximetry",
+      "urgencyLevel": "Critical",
+      "generatedBy": "ICU Protocol",
+      "generatedDate": "2026-05-11",
+      "status": "Immediate"
+    },
+    {
+      "id": "4",
+      "carePlanId": 1,
+      "recommendation": "Reduce environmental stimuli (Light/Noise)",
+      "urgencyLevel": "Low",
+      "generatedBy": "Dr. Martinez",
+      "generatedDate": "2026-05-11",
+      "status": "Active"
+    },
+    {
+      "id": "5",
+      "carePlanId": 5,
+      "recommendation": "Physical therapy for motor stimulation",
+      "urgencyLevel": "Medium",
+      "generatedBy": "Rehab Dept",
+      "generatedDate": "2026-05-10",
+      "status": "Pending"
+    }
+  ],
+  "vitalSigns": [
+    {
+      "id": "1",
+      "neonateName": "Lucas Ramirez",
+      "dates": [
+        "May 7",
+        "May 8",
+        "May 9",
+        "May 10",
+        "May 11"
+      ],
+      "temperatures": [
+        36.5,
+        36.8,
+        37,
+        37.5,
+        38.2
+      ]
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
