@@ -1,0 +1,11 @@
+{
+    "dashboard": {
+        "title": "Dashboard",
+        "health-summary": "Health Summary"
+    },
+    "neonatal-care-coordination": {
+        "title": "Care Coordination",
+        "care-plans": "Care Plans",
+        "alerts": "Critical Alerts"
+    }
+}

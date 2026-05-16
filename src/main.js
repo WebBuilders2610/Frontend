@@ -6,6 +6,7 @@ import Material from '@primeuix/themes/material';
 import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
 import router from './router';
+import i18n from './shared/i18n';
 import {
     Button,
     Card,
@@ -27,6 +28,7 @@ createApp(App)
     .use(ConfirmationService)
     .use(DialogService)
     .use(ToastService)
+    .use
     .component('pv-button', Button)
     .component('pv-card', Card)
     .component('pv-column', Column)

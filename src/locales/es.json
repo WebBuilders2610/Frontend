@@ -1,0 +1,11 @@
+{
+    "dashboard": {
+        "title": "Panel de Control",
+        "health-summary": "Resumen de Salud"
+    },
+    "neonatal-care-coordination": {
+        "title": "Coordinación de Cuidados",
+        "care-plans": "Planes de Cuidado",
+        "alerts": "Alertas Críticas"
+    }
+}
