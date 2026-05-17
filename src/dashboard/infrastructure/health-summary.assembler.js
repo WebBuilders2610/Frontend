@@ -2,13 +2,17 @@ import { HealthSummary } from '../domain/health-summary.entity.js'
 
 export class HealthSummaryAssembler {
     static toEntity(resource) {
-        if (!resource) return null
         return new HealthSummary({
-            babyId: resource.babyId,
-            averageTemperature: resource.avgTemp,
-            averageOxygen: resource.avgO2,
-            alertsCount: resource.criticalAlertsCount,
-            lastUpdate: new Date(resource.timestamp),
+            id: resource.id,
+            neonateName: resource.neonateName,
+            age: resource.age,
+            status: resource.status,
+            weight: resource.weight,
+            lastUpdate: resource.lastUpdate,
+            heartRate: resource.heartRate,
+            respiratoryRate: resource.respiratoryRate,
+            oxygenSaturation: resource.oxygenSaturation,
+            temperature: resource.temperature,
         })
     }
 }

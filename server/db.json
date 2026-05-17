@@ -1,0 +1,18 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "fullName": "Elena García",
+            "email": "padre@siran.com",
+            "password": "123",
+            "role": "PARENT"
+        },
+        {
+            "id": 2,
+            "fullName": "Dr. Ricardo Torres",
+            "email": "medico@siran.com",
+            "password": "123",
+            "role": "NEONATOLOGIST"
+        }
+    ]
+}

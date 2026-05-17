@@ -7,5 +7,24 @@
         "title": "Coordinación de Cuidados",
         "care-plans": "Planes de Cuidado",
         "alerts": "Alertas Críticas"
+    },
+    "iam": {
+        "sign-in": {
+            "title": "Iniciar Sesión",
+            "email": "Correo electrónico",
+            "password": "Contraseña",
+            "submit": "Ingresar",
+            "no-account": "¿No tienes una cuenta?",
+            "register": "Regístrate",
+            "welcome": "Bienvenido de nuevo a SIRAN",
+            "email-example": "correo{'@'}siran.com"
+        }
+    },
+    "shared": {
+        "navbar": {
+            "dashboard": "Dashboard",
+            "care-plans": "Care Plans",
+            "logout": "Logout"
+        }
     }
 }

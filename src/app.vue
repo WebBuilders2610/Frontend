@@ -1,7 +1,18 @@
 <script setup>
-import CareCoordinationDashboard from './neonatal-care-coordination/presentation/pages/care-coordination-dashboard.page.vue'
+import AppNavbar from './shared/presentation/components/app-navbar.component.vue';
 </script>
 
 <template>
-  <RouterView />
+  <AppNavbar />
+  
+  <router-view />
 </template>
+
+<style>
+#app {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+</style>

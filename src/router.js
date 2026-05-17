@@ -1,12 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { authenticationGuard } from './iam/infrastructure/authentication.guard.js'
 
-// Importamos desde la ubicación correcta (presentation/)
-import dashboardRoutes from './dashboard/presentation/dashboard-routes.js'
-import careCoordinationRoutes from './neonatal-care-coordination/presentation/router/care-coordination.routes.js'
+import iamRoutes from './iam/presentation/iam-routes.js'
 
 const router = createRouter({
     history: createWebHistory(),
-    routes: [...dashboardRoutes, ...careCoordinationRoutes],
+    routes: [
+        { path: '/', redirect: '/sign-in' }, 
+        ...iamRoutes,
+      
+    ],
 })
+
+router.beforeEach(authenticationGuard)
 
 export default router

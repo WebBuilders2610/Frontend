@@ -472,7 +472,7 @@ export default httpClient;
 
 ```js
 // shared/infrastructure/base-endpoint.js
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3000';
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:5173';
 ```
 
 **API de cada bounded context:**
