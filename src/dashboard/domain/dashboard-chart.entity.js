@@ -1,7 +1,9 @@
 export class DashboardChart {
-    constructor({ labels, temperatures, oxygens }) {
-        this.labels = labels
-        this.temperatures = temperatures
-        this.oxygens = oxygens
+    constructor({ id, neonateId, parameterName, labels, dataPoints }) {
+        this.id = id
+        this.neonateId = neonateId
+        this.parameterName = parameterName 
+        this.labels = labels 
+        this.dataPoints = dataPoints 
     }
 }

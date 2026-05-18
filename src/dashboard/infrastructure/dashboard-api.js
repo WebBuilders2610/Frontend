@@ -5,4 +5,9 @@ export class DashboardApi {
         const response = await httpClient.get('/health-summaries')
         return response.data
     }
+
+    static async getChartsByNeonateId(neonateId) {
+        const response = await httpClient.get(`/charts?neonateId=${neonateId}`)
+        return response.data
+    }
 }
