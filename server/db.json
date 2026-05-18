@@ -14,5 +14,31 @@
             "password": "123",
             "role": "NEONATOLOGIST"
         }
-    ]
+    ],
+    "health-summaries": [
+  {
+    "id": 1,
+    "neonateName": "Mateo",
+    "age": "2 meses",
+    "status": "Normal",
+    "weight": "4.5 kg",
+    "lastUpdate": "Hace 15 min",
+    "heartRate": 123,
+    "respiratoryRate": 34,
+    "oxygenSaturation": 96,
+    "temperature": 36.6
+  },
+  {
+    "id": 2,
+    "neonateName": "Sofía",
+    "age": "1 mes",
+    "status": "Alerta",
+    "weight": "3.8 kg",
+    "lastUpdate": "Hace 2 min",
+    "heartRate": 165,
+    "respiratoryRate": 60,
+    "oxygenSaturation": 91,
+    "temperature": 38.2
+  }
+]
 }

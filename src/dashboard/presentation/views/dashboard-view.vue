@@ -1,75 +1,131 @@
 <script setup>
 import { onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-import DataTable from 'primevue/datatable';
-import Column from 'primevue/column';
-import Button from 'primevue/button';
 import { useDashboardStore } from '../../application/dashboard.store.js';
 
-const store = useDashboardStore();
-const router = useRouter();
+// Componentes de PrimeVue
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import Card from 'primevue/card';
+import Tag from 'primevue/tag';
+import ProgressSpinner from 'primevue/progressspinner';
 
-// Función para navegar al detalle
-const goToSummary = (babyId) => {
-    router.push({ name: 'health-summary', params: { babyId } });
+const dashboardStore = useDashboardStore();
+
+// Cargar los datos al montar la vista
+onMounted(() => {
+  dashboardStore.fetchSummaries();
+});
+
+// Manejar la selección de un bebé en la tabla
+const onRowSelect = (event) => {
+  dashboardStore.selectNeonate(event.data.id);
 };
 
-onMounted(() => {
-    store.fetchAllHealthSummaries();
-    // store.fetchChartMetrics(); // Si integraste el gráfico
-});
+// Utilidad para los colores del estado (Tag)
+const getSeverity = (status) => {
+  switch (status?.toLowerCase()) {
+    case 'normal': return 'success';
+    case 'alerta': return 'danger';
+    default: return 'info';
+  }
+};
 </script>
 
 <template>
-    <div class="p-4 md:p-6 lg:p-8 w-full max-w-screen-xl mx-auto">
-        <h1 class="text-3xl font-bold mb-4 text-900">Dashboard General</h1>
+  <div class="p-4">
+    <h1 class="text-3xl font-bold mb-4">Dashboard Neonatal</h1>
 
-        <div v-if="store.isLoading" class="flex justify-content-center p-5">
-            <i class="pi pi-spin pi-spinner text-4xl text-primary"></i>
-        </div>
-
-        <div v-else-if="store.error" class="p-4 bg-red-50 text-red-600 border-round mb-4">
-            <i class="pi pi-exclamation-circle mr-2"></i> {{ store.error }}
-        </div>
-
-        <div class="surface-card p-4 border-round shadow-2 mt-4">
-            <h2 class="text-xl font-medium mb-4 text-700">Monitoreo Activo de Neonatos</h2>
-            
-            <DataTable :value="store.healthSummaries" responsiveLayout="scroll" :paginator="true" :rows="5">
-                <Column field="babyId" header="ID Neonato" />
-                
-                <Column header="Temp. Promedio">
-                    <template #body="slotProps">
-                        <span :class="slotProps.data.isTemperatureNormal() ? 'text-green-500 font-bold' : 'text-orange-500 font-bold'">
-                            {{ slotProps.data.averageTemperature }} °C
-                        </span>
-                    </template>
-                </Column>
-
-                <Column field="averageOxygen" header="O2 Promedio">
-                    <template #body="slotProps">
-                        {{ slotProps.data.averageOxygen }}%
-                    </template>
-                </Column>
-
-                <Column header="Estado / Alertas">
-                    <template #body="slotProps">
-                        <span class="px-2 py-1 border-round text-sm font-bold"
-                              :class="slotProps.data.hasCriticalAlerts() ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'">
-                            {{ slotProps.data.alertsCount }} Alertas
-                        </span>
-                    </template>
-                </Column>
-
-                <Column header="Acciones">
-                    <template #body="slotProps">
-                        <Button icon="pi pi-eye" 
-                                label="Ver Detalle" 
-                                class="p-button-sm p-button-outlined" 
-                                @click="goToSummary(slotProps.data.babyId)" />
-                    </template>
-                </Column>
-            </DataTable>
-        </div>
+    <div v-if="dashboardStore.loading" class="flex justify-content-center my-5">
+      <ProgressSpinner />
     </div>
+
+    <div v-else>
+      <div class="surface-card p-4 shadow-2 border-round mb-5">
+        <h2 class="text-xl mb-3">Lista de Bebés</h2>
+        
+        <DataTable 
+          :value="dashboardStore.summaries" 
+          selectionMode="single" 
+          @rowSelect="onRowSelect" 
+          dataKey="id"
+          responsiveLayout="scroll"
+          class="p-datatable-sm"
+        >
+          <Column field="neonateName" header="Nombre" sortable></Column>
+          <Column field="age" header="Edad"></Column>
+          <Column header="Estado">
+            <template #body="{ data }">
+              <Tag :value="data.status" :severity="getSeverity(data.status)" />
+            </template>
+          </Column>
+          <Column field="weight" header="Peso"></Column>
+          <Column field="lastUpdate" header="Última Actualización"></Column>
+        </DataTable>
+      </div>
+
+      <div v-if="dashboardStore.selectedNeonate" class="surface-card p-4 shadow-2 border-round">
+        <h2 class="text-xl mb-4">
+          Detalles de Signos Vitales: <span class="text-primary">{{ dashboardStore.selectedNeonate.neonateName }}</span>
+        </h2>
+        
+        <div class="grid">
+          <div class="col-12 md:col-6 lg:col-3">
+            <Card class="h-full border-1 surface-border">
+              <template #title>
+                <div class="flex align-items-center gap-2 text-sm text-500">
+                  <i class="pi pi-heart text-red-500"></i> Frec. Cardíaca
+                </div>
+              </template>
+              <template #content>
+                <span class="text-2xl font-bold">{{ dashboardStore.selectedNeonate.heartRate }}</span>
+                <span class="text-500 ml-2">bpm</span>
+              </template>
+            </Card>
+          </div>
+
+          <div class="col-12 md:col-6 lg:col-3">
+            <Card class="h-full border-1 surface-border">
+              <template #title>
+                <div class="flex align-items-center gap-2 text-sm text-500">
+                  <i class="pi pi-wave-pulse text-blue-500"></i> Frec. Respiratoria
+                </div>
+              </template>
+              <template #content>
+                <span class="text-2xl font-bold">{{ dashboardStore.selectedNeonate.respiratoryRate }}</span>
+                <span class="text-500 ml-2">rpm</span>
+              </template>
+            </Card>
+          </div>
+
+          <div class="col-12 md:col-6 lg:col-3">
+            <Card class="h-full border-1 surface-border">
+              <template #title>
+                <div class="flex align-items-center gap-2 text-sm text-500">
+                  <i class="pi pi-cloud text-cyan-500"></i> Sat. Oxígeno (O2)
+                </div>
+              </template>
+              <template #content>
+                <span class="text-2xl font-bold">{{ dashboardStore.selectedNeonate.oxygenSaturation }}</span>
+                <span class="text-500 ml-2">%</span>
+              </template>
+            </Card>
+          </div>
+
+          <div class="col-12 md:col-6 lg:col-3">
+            <Card class="h-full border-1 surface-border">
+              <template #title>
+                <div class="flex align-items-center gap-2 text-sm text-500">
+                  <i class="pi pi-thermometer text-orange-500"></i> Temperatura
+                </div>
+              </template>
+              <template #content>
+                <span class="text-2xl font-bold">{{ dashboardStore.selectedNeonate.temperature }}</span>
+                <span class="text-500 ml-2">°C</span>
+              </template>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
