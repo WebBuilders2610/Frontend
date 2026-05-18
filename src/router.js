@@ -3,6 +3,7 @@ import { authenticationGuard } from './iam/infrastructure/authentication.guard.j
 
 import iamRoutes from './iam/presentation/iam-routes.js'
 import dashboardRoutes from './dashboard/presentation/dashboard-routes.js'
+import profilesRoutes from './profiles/presentation/profiles-routes.js'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -10,6 +11,7 @@ const router = createRouter({
         { path: '/', redirect: '/sign-in' },
         ...iamRoutes,
         ...dashboardRoutes,
+        ...profilesRoutes,
     ],
 })
 

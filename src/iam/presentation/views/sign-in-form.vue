@@ -7,17 +7,14 @@ import InputText from 'primevue/inputtext';
 import Password from 'primevue/password';
 import Button from 'primevue/button';
 import Message from 'primevue/message';
-// 1. Importación del switch de idiomas
 import SelectButton from 'primevue/selectbutton';
 
 const email = ref('');
 const password = ref('');
 const store = useIamStore();
 const router = useRouter();
-// 2. Extraemos 'locale' de useI18n
 const { t, locale } = useI18n();
 
-// 3. Array de idiomas
 const languages = ref([
   { label: 'EN', value: 'en' },
   { label: 'ES', value: 'es' }
